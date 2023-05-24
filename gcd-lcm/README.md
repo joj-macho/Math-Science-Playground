@@ -2,6 +2,8 @@
 
 ## Description
 
+This is a Python program for calculating the Greatest Common Divisor (GCD) and Least Common Multiple (LCM) of two numbers.
+
 ## How it Works
 
 ## Program Input & Output
