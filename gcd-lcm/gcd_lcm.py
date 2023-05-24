@@ -1,4 +1,4 @@
-def gcd(a, b):
+def calculate_gcd(a, b):
     """
     Calculate the Greatest Common Divisor (GCD) of two numbers.
 
@@ -14,7 +14,7 @@ def gcd(a, b):
     return a
 
 
-def lcm(a, b):
+def calculate_lcm(a, b):
     """
     Calculate the Least Common Multiple (LCM) of two numbers.
 
@@ -25,7 +25,10 @@ def lcm(a, b):
     Returns:
     - int: LCM of the two numbers
     """
-    return (a * b) // gcd(a, b)
+    gcd_result = calculate_gcd(a, b)
+    if gcd_result == 0:
+        return 0
+    return (a * b) // gcd_result
 
 
 def main():
@@ -39,13 +42,16 @@ def main():
         try:
             num1 = int(input("Enter the first number: "))
             num2 = int(input("Enter the second number: "))
-            break
+            if num1 > 0 and num2 > 0:
+                break
+            else:
+                print("Invalid input. Please enter positive integers.")
         except ValueError:
             print("Invalid input. Please enter valid integers.")
 
     # Calculate GCD and LCM
-    gcd_result = gcd(num1, num2)
-    lcm_result = lcm(num1, num2)
+    gcd_result = calculate_gcd(num1, num2)
+    lcm_result = calculate_lcm(num1, num2)
 
     # Display the results
     print(f"The GCD of {num1} and {num2} is: {gcd_result}")
