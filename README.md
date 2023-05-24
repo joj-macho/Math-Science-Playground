@@ -1,6 +1,6 @@
 # Math & Science Playground
 
-Welcome to the "Math & Science Playground" repository! This repository contains a collection of Python programs focused on various mathematical and scientific computations.
+Welcome to the Math & Science Playground repository! This repository contains a collection of Python programs focused on various mathematical and scientific computations.
 
 ## Programs
 
