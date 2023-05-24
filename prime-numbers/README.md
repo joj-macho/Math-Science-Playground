@@ -2,6 +2,8 @@
 
 ## Description
 
+This is a Python program that generates prime numbers
+
 ## How it Works
 
 ## Program Input & Output
