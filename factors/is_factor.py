@@ -16,7 +16,10 @@ def main():
     result = is_factor(factor, number)
 
     # Display the result
-    print(f"{factor} is a factor of {number}: {result}")
+    if result:
+        print(f'{factor} is a factor of {number}.')
+    else:
+        print(f'{factor} is not a factor of {number}.')
 
 def is_factor(factor, number):
     '''This function checks if factor is a factor of number.'''
