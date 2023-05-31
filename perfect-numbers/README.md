@@ -2,7 +2,9 @@
 
 ## Description
 
-The "Perfect Number Checker" is a Python program that allows users to check if a number is perfect and list perfect numbers within a range.
+Perfect numbers are positive integers that are equal to the sum of their proper divisors. In other words, the sum of the divisors of a perfect number, excluding the number itself, is equal to the number. For example, the number 6 is a perfect number because the sum of its divisors (1 + 2 + 3 = 6) is equal to 6.
+
+This program, Perfect Number Checker, is a Python program that allows users to check if a number is perfect and list perfect numbers within a range.
 
 ## How it Works
 
