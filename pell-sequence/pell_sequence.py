@@ -1,34 +1,43 @@
-def generate_pell_sequence(n):
-    """
-    Generates the Pell sequence up to the nth term.
-    """
-    pell_sequence = [0, 1]  # Initialize the sequence with the first two terms
-
-    for i in range(2, n):
-        pell_number = 2 * pell_sequence[i - 1] + pell_sequence[i - 2]
-        pell_sequence.append(pell_number)
-
-    return pell_sequence
-
-
 def main():
-    """
-    Main function to get user input and generate the Pell sequence.
-    """
-    print("Pell Sequence Generator\n")
+    '''Main function to generate Pell numbers.'''
+
+    print('\nPell Number Generator\n')
+
+    while True:
+        print('1. Generate Pell numbers')
+        print('2. Enter (q)uit to exit program')
+
+        choice = input('Enter your choice:\n> ')
+
+        if choice == '1':
+            generate_pell_numbers()
+        elif choice == '2' or choice.startswith('q'):
+            print('Bye.')
+            break
+        else:
+            print('Invalid choice. Please enter a valid option.')
+
+def generate_pell_numbers():
+    '''Function to generate Pell numbers.'''
 
     while True:
         try:
-            n = int(input("Enter the number of terms: "))
+            n = int(input('Enter the number of Pell numbers to generate: '))
             break
         except ValueError:
-            print("Invalid input. Please enter a valid integer.")
+            print('Invalid input. Please enter a valid integer.\n')
 
-    pell_sequence = generate_pell_sequence(n)
+    pell_numbers = [0, 1]
 
-    print("\nThe Pell sequence is:")
-    print(pell_sequence)
+    if n <= 2:
+        print(f'Generated Pell numbers: {pell_numbers[:n]}\n.')
+        return
 
+    for i in range(2, n):
+        pell = 2 * pell_numbers[i - 1] + pell_numbers[i - 2]
+        pell_numbers.append(pell)
 
-if __name__ == "__main__":
+    print(f'Generated Pell numbers:\n{pell_numbers}.\n')
+
+if __name__ == '__main__':
     main()
