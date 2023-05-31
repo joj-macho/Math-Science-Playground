@@ -1,72 +1,45 @@
-# Factors of a Number
+# Number Factors Calculator 
 
 ## Description
 
-This folder contains two Python programs, `is_factor` and `number_factors`, that handle factor-related computations for integers.
-
-<ol>
-  <li><p><strong>is_factor Program:</strong> The <code>is_factor</code> program provides a function <code>is_factor(factor, number)</code> to check if a given number is a factor of another number.</p></li>
-  <li><p><strong>number_factors Program:</strong> The <code>number_factors</code> program offers a function <code>find_factors(number)</code> to determine all the factors of a given number.</p></li>
-</ol>
+The Number Factors Calculator is a Python program that determines the factors of a given number. Factors are the positive integers that evenly divide a given number without leaving a remainder. For instance, the factors of 12 are 1, 2, 3, 4, 6, and 12. 
 
 ## How it Works
 
-- In both programs, there is a main function that is defined. It prompts the user for input, calls the respective function (`is_factor` or `find_factors`), and displays the result to the user.
+- The program starts with a `main` function. Inside this function, a while loop is used to repeatedly prompt the user for input and find the factors. The loop continues until the user enters 0 to quit.
 
-1. The `is_factor.py` Program:
-- The `is_factor` program defines a function `is_factor(factor, number)` that checks if factor is a factor of number. Here's how it works:
-    - The `is_factor` function takes two integer parameters: `factor` (the potential factor) and `number` (the number to be checked for divisibility) and returns a boolean value (`True` if `factor` is a factor of `number`, and `False` otherwise).
-    - The function checks if `number` is divisible by `factor` using the modulo operator (`%`). If the remainder of `number` divided by `factor` is zero, it means `factor` is a factor of `number`.
+- The `get_valid_input` function is called to obtain a valid input from the user. This function prompts the user to enter a positive integer or 0 to quit. It validates the input, ensuring that the entered value is a positive integer or 0. If the input is not valid, appropriate error messages are displayed, and the user is prompted to re-enter the value.
 
-2. The `number_factors.py` Program:
-- The `number_factors` program defines a function `find_factors(number)` that finds the factors of a given number. Here's how it works:
-    - The function takes an integer parameter `number` for which to find the factors.
-    - The function initializes an empty list `factors` to store the factors. Then uses a `for` loop to iterate from 1 to `number + 1`. For each iteration, it checks if `number` is divisible by the current iteration value. If it is, the current iteration value is a factor of `number`, so it is appended to the `factors` list.
-    - The function returns the `factors` list containing all the factors of the given number.
+- The `find_factors` function is called to calculate the factors of the entered number. This function takes a positive integer `n` as input and iterates from 1 to `n`. For each iteration, it checks if `n` is divisible by the current number (`i`) without leaving a remainder. If it is, the current number is considered a factor of `n` and is added to the list of factors.
+
+- Based on the calculated factors, the `main` function displays the result to the user, indicating the factors of the entered number.
+
 
 ## Program Input & Output
-
-When you run the program, `is_factor.py`, the output will look like this;
-
-```
-Factor Checker
-
-Enter the potential factor: 4
-Enter the number to be checked: 48
-4 is a factor of 48: True
-sh-5.1$ /usr/bin/python3 ".../factors/is_factor.py"
-
-Factor Checker
-
-Enter the potential factor: 3
-Enter the number to be checked: 198
-3 is a factor of 198: True
-sh-5.1$ /usr/bin/python3 ".../factors/is_factor.py"
-
-Factor Checker
-
-Enter the potential factor: 7
-Enter the number to be checked: 15
-7 is a factor of 15: False
-```
 
 When you run the program, `number_factors.py`, the output will look like this;
 
 ```
-Factor Finder
 
-Enter an integer to find its factors: 158
-The factors of 158 are: [1, 2, 79, 158]
-sh-5.1$ /usr/bin/python3 ".../factors/number_factors.py"
+Number Factors Calculator
 
-Factor Finder
+Enter a positive integer (or 0 to quit):
+> 1
+The factors of 1 are [1].
 
-Enter an integer to find its factors: 42
-The factors of 42 are: [1, 2, 3, 6, 7, 14, 21, 42]
-sh-5.1$ /usr/bin/python3 ".../factors/number_factors.py"
+Enter a positive integer (or 0 to quit):
+> 5
+The factors of 5 are [1, 5].
 
-Factor Finder
+Enter a positive integer (or 0 to quit):
+> 15
+The factors of 15 are [1, 3, 5, 15].
 
-Enter an integer to find its factors: 12345
-The factors of 12345 are: [1, 3, 5, 15, 823, 2469, 4115, 12345]
+Enter a positive integer (or 0 to quit):
+> 2569896
+The factors of 2569896 are [1, 2, 3, 4, 6, 7, 8, 9, 12, 14, 18, 21, 24, 28, 36, 42, 56, 63, 72, 84, 126, 168, 252, 504, 5099, 10198, 15297, 20396, 30594, 35693, 40792, 45891, 61188, 71386, 91782, 107079, 122376, 142772, 183564, 214158, 285544, 321237, 367128, 428316, 642474, 856632, 1284948, 2569896].
+
+Enter a positive integer (or 0 to quit):
+> 0
+Bye.
 ```

@@ -1,36 +1,42 @@
-import math
 
 def main():
-    '''This function represents the main logic of the Factor Finder program. It prompts the user to enter an integer and finds all the factors of that number.
-    The factors are then displayed to the user.'''
+    '''Main function to find the factors of a number.'''
 
-    print('\nFactor Finder\n')
+    print('\nNumber Factors Calculator\n')
 
-    # Get input from the user
+    while True:
+        number = get_valid_input()
+        if number == 0:
+            print('Bye.')
+            break
+
+        factors = find_factors(number)
+        print(f'The factors of {number} are {factors}.\n')
+
+def get_valid_input():
+    '''Function to get a valid input from the user (a positive integer) or 0 to quit.'''
+
     while True:
         try:
-            number = int(input('Enter an integer to find its factors:\n> '))
-            break
+            number = int(input('Enter a positive integer (or 0 to quit):\n> '))
+            if number >= 0:
+                break
+            else:
+                print('Invalid input. Please enter a positive integer or 0.\n')
         except ValueError:
-            print('Invalid input. Please enter a valid integer.')
+            print('Invalid input. Please enter a valid integer.\n')
 
-    # Find the factors
-    factors = get_factors(number)
+    return number
 
-    # Display the result
-    print(f"The factors of {number} are: {factors}")
+def find_factors(n):
+    '''Function to find the factors of a number.'''
 
-def get_factors(number):
-    '''This function finds the factors of a given number.'''
-
-    if number < 0:
-        return []
-
-    factors = [i for i in range(1, int(math.sqrt(number)) + 1) if number % i == 0]
-    factors.extend(number // i for i in factors[::-1] if i * i != number)
+    factors = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            factors.append(i)
 
     return factors
-
 
 if __name__ == '__main__':
     main()
