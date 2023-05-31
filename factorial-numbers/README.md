@@ -1,8 +1,10 @@
-# Factorial Numbers
+# Factorial Calculator
 
 ## Description
 
-The Factorial Calculator is a Python program that allows users to calculate the factorial of a given number. The factorial of a non-negative integer `n`, denoted as `n!`, is the product of all positive integers from 1 to `n`. The program provides an interactive interface for users to input numbers and calculate their factorials.
+The factorial of a non-negative integer `n`, denoted as `n!`, is the product of all positive integers from 1 to `n`. For example, the factorial of 5 ($5!$) is calculated as $5 × 4 × 3 × 2 × 1$, which equals 120.
+
+The Factorial Calculator is a Python program that allows users to calculate the factorial of a given number.
 
 ## How it Works
 
