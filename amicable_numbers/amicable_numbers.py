@@ -1,82 +1,82 @@
-def sum_of_proper_divisors(number):
-    """
-    Calculate the sum of proper divisors of a given number.
-
-    Parameters:
-    - number (int): The number for which to calculate the sum of proper divisors.
-
-    Returns:
-    - int: The sum of proper divisors.
-    """
-    divisors_sum = 1  # Initialize sum with 1 since every number is divisible by 1
-
-    # Iterate from 2 to the square root of the number
-    for i in range(2, int(number ** 0.5) + 1):
-        if number % i == 0:
-            divisors_sum += i
-            if i != number // i:  # Add the pair divisor only if it is distinct
-                divisors_sum += number // i
-
-    return divisors_sum
-
-
-def find_amicable_numbers(start, end):
-    """
-    Find pairs of amicable numbers within a given range.
-
-    Parameters:
-    - start (int): The starting number of the range.
-    - end (int): The ending number of the range.
-
-    Returns:
-    - list: A list of tuples containing pairs of amicable numbers.
-    """
-    amicable_pairs = []
-
-    # Iterate over the range of numbers
-    for number in range(start, end + 1):
-        sum1 = sum_of_proper_divisors(number)
-
-        # Check if the sum of proper divisors is different from the number itself
-        if sum1 != number:
-            sum2 = sum_of_proper_divisors(sum1)
-
-            # Check if the second sum of proper divisors is equal to the original number
-            if sum2 == number:
-                amicable_pairs.append((number, sum1))
-
-    return amicable_pairs
-
 
 def main():
-    """
-    This program finds pairs of amicable numbers within a given range.
-    """
-    print("Amicable Numbers\n")
+    '''Main function to get user input and check if a number is amicable.'''
 
-    # Get input from the user
+    print('\nAmicable Number Checker\n')
+
+    while True:
+        print('1. Check if a number is amicable')
+        print('2. List amicable numbers within a range')
+        print('3. Enter (q)uit to exit program')
+
+        choice = input('Enter your choice:\n> ')
+
+        if choice == '1':
+            check_amicable_number()
+        elif choice == '2':
+            list_amicable_numbers()
+        elif choice == '3' or choice.startswith('q'):
+            print('Bye.')
+            break
+        else:
+            print('Invalid choice. Please enter a valid option.')
+
+def check_amicable_number():
+    '''Function to check if a number is amicable.'''
+
     while True:
         try:
-            start = int(input("Enter the starting number of the range: "))
-            end = int(input("Enter the ending number of the range: "))
-            if start <= end:
-                break
-            else:
-                print("Invalid input. The starting number should be less than or equal to the ending number.")
+            number = int(input('Enter a number: '))
+            break
         except ValueError:
-            print("Invalid input. Please enter valid integers.")
+            print('Invalid input. Please enter a valid integer.\n')
 
-    # Find amicable numbers
-    amicable_pairs = find_amicable_numbers(start, end)
-
-    # Display the amicable pairs
-    if amicable_pairs:
-        print("The amicable pairs within the given range are:")
-        for pair in amicable_pairs:
-            print(pair)
+    if is_amicable(number):
+        print(f'{number} is an amicable number.\n')
     else:
-        print("No amicable pairs found within the given range.")
+        print(f'{number} is not an amicable number.\n')
 
-# Execute the main function
-if __name__ == "__main__":
+def list_amicable_numbers():
+    '''Function to list amicable numbers within a range.'''
+
+    while True:
+        try:
+            start = int(input('Enter the starting number: '))
+            end = int(input('Enter the ending number: '))
+            break
+        except ValueError:
+            print('Invalid input. Please enter valid integers.\n')
+
+    if start > end:
+        print('Invalid range. Starting number should be less than or equal to the ending number.')
+        return
+
+    amicable_numbers = []
+    for number in range(start, end + 1):
+        if is_amicable(number):
+            amicable_numbers.append(number)
+
+    if amicable_numbers:
+        print(f'Amicable numbers within the range ({start}, {end}):\n{amicable_numbers}\n')
+    else:
+        print(f'No amicable numbers within the range ({start}, {end}).\n')
+
+def is_amicable(n):
+    '''Checks if a number is amicable.'''
+
+    sum_divisors_a = sum(get_divisors(n))
+    sum_divisors_b = sum(get_divisors(sum_divisors_a))
+
+    return n != sum_divisors_a and n == sum_divisors_b
+
+def get_divisors(n):
+    '''Returns a list of proper divisors of a given number.'''
+
+    divisors = []
+    for i in range(1, n):
+        if n % i == 0:
+            divisors.append(i)
+    return divisors
+
+if __name__ == '__main__':
     main()
