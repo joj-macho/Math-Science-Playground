@@ -1,8 +1,10 @@
-# Abundant Numbers
+# Abundant Number Checker
 
 ## Description
 
-Abundant numbers are positive integers that have the intriguing property of being smaller than the sum of their proper divisors. This program, called the "Abundant Number Checker," is implemented in Python and allows users to perform various operations related to abundant numbers.
+Abundant numbers are positive integers that are smaller than the sum of their proper divisors. In other words, the sum of all the divisors of an abundant number, excluding the number itself, is greater than the number itself. For example, the number $12$ is an abundant number because the sum of its proper divisors ($1 + 2 + 3 + 4 + 6 = 16$) is greater than $12$.
+
+This program, Abundant Number Checker, is a Python program that allows users to check if a given number is an abundant number or list abundant numbers within a specified range.
 
 ## How it Works
 

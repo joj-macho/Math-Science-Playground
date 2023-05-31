@@ -29,7 +29,7 @@ def check_abundant_number():
 
     while True:
         try:
-            number = int(input('Enter a number:\n> '))
+            number = int(input('Enter a number: '))
             break
         except ValueError:
             print('Invalid input. Please enter a valid integer.')
@@ -48,7 +48,7 @@ def list_abundant_numbers():
             end = int(input('Enter the ending number: '))
             break
         except ValueError:
-            print('Invalid input. Please enter valid integers.')
+            print('Invalid input. Please enter valid integers.\n')
 
     if start > end:
         print('Invalid range. Starting number should be less than or equal to the ending number.')
@@ -69,10 +69,10 @@ def display_divisors():
 
     while True:
         try:
-            number = int(input('Enter a number:\n> '))
+            number = int(input('Enter a number: '))
             break
         except ValueError:
-            print('Invalid input. Please enter a valid integer.')
+            print('Invalid input. Please enter a valid integer.\n')
 
     divisors = get_divisors(number)
 
