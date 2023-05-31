@@ -1,32 +1,41 @@
-def factorial(n):
-    """
-    Calculates the factorial of a number.
-    """
-    if n == 0:
-        return 1
-    else:
-        return n * factorial(n - 1)
-
 
 def main():
-    """
-    Main function to get user input and calculate the factorial.
-    """
-    print("Factorial Calculator\n")
+    '''Main function to calculate the factorial of a number.'''
+
+    print('\nFactorial Calculator\n')
+
+    while True:
+        number = get_valid_input()
+        if number == 0:
+            print('Bye.')
+            break
+
+        factorial = calculate_factorial(number)
+        print(f'The factorial of {number} is {factorial}.\n')
+
+def get_valid_input():
+    '''Function to get a valid input from the user (a non-negative integer) or 0 to quit.'''
 
     while True:
         try:
-            number = int(input("Enter a number: "))
-            break
+            number = int(input('Enter a non-negative integer (or 0 to quit):\n> '))
+            if number >= 0:
+                break
+            else:
+                print('Invalid input. Please enter a non-negative integer or 0.\n')
         except ValueError:
-            print("Invalid input. Please enter a valid integer.")
+            print('Invalid input. Please enter a valid integer.\n')
 
-    if number < 0:
-        print("Factorial is not defined for negative numbers.")
-    else:
-        result = factorial(number)
-        print(f"The factorial of {number} is {result}.")
+    return number
 
+def calculate_factorial(n):
+    '''Function to calculate the factorial of a number.'''
 
-if __name__ == "__main__":
+    factorial = 1
+    for i in range(1, n + 1):
+        factorial *= i
+
+    return factorial
+
+if __name__ == '__main__':
     main()
