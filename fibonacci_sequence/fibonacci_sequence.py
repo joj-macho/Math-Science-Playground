@@ -1,53 +1,50 @@
+
 def main():
-    '''This is the main function to demonstrate the generation of the Fibonacci sequence.'''
+    '''Main function to generate Fibonacci numbers.'''
 
-    print('\nFibonacci Sequence Generator\n')
+    print('\nFibonacci Number Generator\n')
 
-    # Get the number of terms from the user
+    while True:
+        print('1. Generate Fibonacci sequence')
+        print('2. Quit Program')
+
+        choice = input('Enter your choice:\n> ')
+
+        if choice == '1':
+            generate_fibonacci_sequence()
+        elif choice == '2':
+            print('Bye.')
+            break
+        else:
+            print('Invalid choice. Please enter a valid option.')
+
+def generate_fibonacci_sequence():
+    '''Function to generate the Fibonacci sequence.'''
+
     while True:
         try:
-            num_terms = int(input('Enter the number of terms to generate (1 or more):\n> '))
-            if num_terms <= 0:
-                raise ValueError()
+            n = int(input('Enter the number of terms: '))
             break
         except ValueError:
-            print('Invalid input. Please enter a valid integer greater than zero.')
+            print('Invalid input. Please enter a valid integer.')
 
-    # Limit the number of terms
-    max_terms = 100  # Adjust the maximum number of terms as desired
-    if num_terms > max_terms:
-        print(f'Warning: Generating more than {max_terms} terms may take a long time.')
-        input('Press Enter to begin...')
+    fibonacci_sequence = [0, 1]
 
-    # Generate the Fibonacci sequence
-    sequence = generate_fibonacci_sequence(num_terms)
-
-    # Display the sequence
-    print(f'\nThe Fibonacci sequence up to {num_terms} terms:')
-    for term in sequence:
-        print(term, end=' ')
-
-    print('\n')
-
-
-def generate_fibonacci_sequence(n):
-    '''This function generates the Fibonacci sequence up to n terms and returns the sequence as a list.'''
-
-    # Validate the input
     if n <= 0:
-        return []
+        print('Invalid number of terms. Number of terms should be greater than 0.')
+        return
+    elif n == 1:
+        print(f'Fibonacci sequence for n = {n}: {fibonacci_sequence[:1]}\n')
+        return
+    elif n == 2:
+        print(f'Fibonacci sequence for n = {n}: {fibonacci_sequence}\n')
+        return
 
-    # Initialize the sequence with the first two terms
-    sequence = [0, 1]
+    while len(fibonacci_sequence) < n:
+        next_number = fibonacci_sequence[-1] + fibonacci_sequence[-2]
+        fibonacci_sequence.append(next_number)
 
-    # Generate the Fibonacci sequence
-    while len(sequence) < n:
-        next_term = sequence[-1] + sequence[-2]
-        sequence.append(next_term)
-
-    return sequence
-
-
+    print(f'Fibonacci sequence for n = {n}: {fibonacci_sequence}\n')
 
 if __name__ == '__main__':
     main()
