@@ -1,63 +1,52 @@
-def calculate_gcd(a, b):
-    """
-    Calculate the Greatest Common Divisor (GCD) of two numbers.
+def main():
+    '''Main function to get user input and compute GCD and LCM.'''
 
-    Parameters:
-    - a (int): First number
-    - b (int): Second number
+    print('\nGCD and LCM Calculator\n')
 
-    Returns:
-    - int: GCD of the two numbers
-    """
+    while True:
+        print('1. Compute GCD and LCM of two numbers')
+        print('2. Quit Program')
+
+        choice = input('Enter your choice:\n> ')
+
+        if choice == '1':
+            compute_gcd_lcm()
+        elif choice == '2':
+            print('Bye.')
+            break
+        else:
+            print('Invalid choice. Please enter a valid option.')
+
+def compute_gcd_lcm():
+    '''Function to compute GCD and LCM of two numbers.'''
+
+    while True:
+        try:
+            num1 = int(input('Enter the first number: '))
+            num2 = int(input('Enter the second number: '))
+            break
+        except ValueError:
+            print('Invalid input. Please enter valid integers.')
+
+    gcd = find_gcd(num1, num2)
+    lcm = find_lcm(num1, num2)
+
+    print(f'GCD of {num1} and {num2}: {gcd}\n')
+    print(f'LCM of {num1} and {num2}: {lcm}\n')
+
+def find_gcd(a, b):
+    '''Returns the Greatest Common Divisor (GCD) of two numbers using Euclidean algorithm.'''
+
     while b:
         a, b = b, a % b
     return a
 
+def find_lcm(a, b):
+    '''Returns the Least Common Multiple (LCM) of two numbers using GCD.'''
 
-def calculate_lcm(a, b):
-    """
-    Calculate the Least Common Multiple (LCM) of two numbers.
+    gcd = find_gcd(a, b)
+    lcm = (a * b) // gcd
+    return lcm
 
-    Parameters:
-    - a (int): First number
-    - b (int): Second number
-
-    Returns:
-    - int: LCM of the two numbers
-    """
-    gcd_result = calculate_gcd(a, b)
-    if gcd_result == 0:
-        return 0
-    return (a * b) // gcd_result
-
-
-def main():
-    """
-    This program calculates the Greatest Common Divisor (GCD) and Least Common Multiple (LCM) of two numbers.
-    """
-    print("GCD and LCM Calculator\n")
-
-    # Get input from the user
-    while True:
-        try:
-            num1 = int(input("Enter the first number: "))
-            num2 = int(input("Enter the second number: "))
-            if num1 > 0 and num2 > 0:
-                break
-            else:
-                print("Invalid input. Please enter positive integers.")
-        except ValueError:
-            print("Invalid input. Please enter valid integers.")
-
-    # Calculate GCD and LCM
-    gcd_result = calculate_gcd(num1, num2)
-    lcm_result = calculate_lcm(num1, num2)
-
-    # Display the results
-    print(f"The GCD of {num1} and {num2} is: {gcd_result}")
-    print(f"The LCM of {num1} and {num2} is: {lcm_result}")
-
-
-# Execute the main function
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
