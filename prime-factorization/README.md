@@ -2,7 +2,7 @@
 
 ## Description
 
-The "Prime Factorization Program" is a Python program that allows the user to perform prime factorization of a given number. Prime factorization is the process of finding the prime numbers that divide a given number exactly.
+The Prime Factorization Program is a Python program that performs prime factorization on a given number. Prime factorization involves breaking down a composite number into a product of its prime factors. Prime factors are the prime numbers that divide the given number without leaving a remainder. For instance, the prime factorization of 24 is $2 × 2 × 2 × 3$, as 2 and 3 are the prime factors of 24.
 
 ## How it Works
 
