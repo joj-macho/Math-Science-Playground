@@ -49,6 +49,7 @@ Welcome to the Math-Science-Playground repository! This repository contains a co
 - [**conway-game-of-life**](conway-game-of-life/): Cellular automata simulation implementing Conway's Game of Life using a cellular automaton model in CLI.
 - [**dice-roll-simulator**](dice-roll-simulator/): Program to simulate rolling a specified number of dice, providing statistics on the rolls.
 - [**langton-ant-simulator**](langton-ant-simulator/): Program to simulate an ant colony using ASCII characters and a cellular automaton model.
+- [**lottery-simulator**](lottery-simulator/): Python CLI program simulating a lottery drawing.
 - [**monty-hall-problem**](monty-hall-problem/): Implementation of the Monty Hall problem, simulating multiple rounds of the game and tracking user's wins and losses.
 - [**periodic-table**](periodic-table/): Program to lookup information about elements in the periodic table.
 - [**random-walk**](random-walk/): Program to generate a random walk in 2D and display it as a grid-like output.
