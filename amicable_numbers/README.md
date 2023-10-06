@@ -2,7 +2,7 @@
 
 ## Description
 
-Amicable numbers are pairs of positive integers where each number is the sum of the proper divisors of the other number. In other words, the sum of the proper divisors of one number equals the other number, and vice versa. For example, the pair of numbers (220, 284) is amicable because the sum of the proper divisors of 220 is 284, and the sum of the proper divisors of 284 is 220. That is, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55, and 110, with a sum of 284. The proper divisors of 284 are 1, 2, 4, 71, and 142, with a sum of 220. Since the sums of the proper divisors for each number match, the pair (220, 284) is considered amicable. You can readme more about amicable numbers on [Wikipedia](https://en.wikipedia.org/wiki/Amicable_numbers)
+Amicable numbers are pairs of positive integers where each number is the sum of the proper divisors of the other number. In other words, the sum of the proper divisors of one number equals the other number, and vice versa. For example, the pair of numbers (220, 284) is amicable because the sum of the proper divisors of 220 is 284, and the sum of the proper divisors of 284 is 220. That is, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55, and 110, with a sum of 284. The proper divisors of 284 are 1, 2, 4, 71, and 142, with a sum of 220. Since the sums of the proper divisors for each number match, the pair (220, 284) is considered amicable. You can read more about amicable numbers on [Wikipedia](https://en.wikipedia.org/wiki/Amicable_numbers)
 
 This program, Amicable Number Checker, is a Python program that allows users to check if a pair of numbers is amicable or find amicable numbers within a given range.
 
