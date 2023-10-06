@@ -2,9 +2,11 @@
 
 ## Description
 
-Armstrong numbers, also known as narcissistic numbers, are positive integers that are equal to the sum of their own digits raised to the power of the number of digits. For example, the number 153 is an Armstrong number because $1^3 + 5^3 + 3^3 = 153$.
+An Armstrong number (also known as a narcissistic number, pluperfect number, or pluperfect digital invariant) is a number that is equal to the sum of its own digits each raised to the power of the number of digits. In other words, it's a number for which the sum of the nth power of its digits is equal to the number itself.
 
-This program, Armstrong Number Checker, is a Python program that provides functionality to check if a number is an Armstrong number and to list all Armstrong numbers within a given range.
+For example, the number 153 is an Armstrong number because $1^3 + 5^3 + 3^3 = 153$.
+
+This program, Armstrong Number Checker, allows users to check if a given number is an Armstrong number or list Armstrong numbers within a specified range.
 
 ## How it Works
 

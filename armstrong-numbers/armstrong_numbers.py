@@ -1,4 +1,3 @@
-
 def main():
     '''Main function to get user input and check if a number is an Armstrong number.'''
 
@@ -63,11 +62,14 @@ def list_armstrong_numbers():
 
 def is_armstrong(n):
     '''Checks if a number is an Armstrong number.'''
-
+    # Convert the number to a string to get its digit
     num_str = str(n)
+    # Calculate the number of digits in the number
     num_digits = len(num_str)
+    # Calculate the sum of each digit raised to the power of the number of digits
     sum_of_digits = sum(int(digit) ** num_digits for digit in num_str)
 
+    # Check if the number is equal to the sum of the nth powers of its digits
     return n == sum_of_digits
 
 if __name__ == '__main__':
