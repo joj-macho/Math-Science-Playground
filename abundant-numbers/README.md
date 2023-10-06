@@ -2,13 +2,13 @@
 
 ## Description
 
-Abundant numbers are positive integers that are smaller than the sum of their proper divisors. In other words, the sum of all the divisors of an abundant number, excluding the number itself, is greater than the number itself. For example, the number $12$ is an abundant number because the sum of its proper divisors ($1 + 2 + 3 + 4 + 6 = 16$) is greater than $12$.
+Abundant numbers are positive integers that are smaller than the sum of their proper divisors. In other words, the sum of all the divisors of an abundant number, excluding the number itself, is greater than the number itself. In mathematical terms, an abundant number $n$ satisfies $\sigma(n) \gt 2n$, where $\sigma(n)$ represents the sum of all divisors of $n$. For example, the number $12$ is an abundant number because the sum of its proper divisors ($1 + 2 + 3 + 4 + 6 = 16$) surpasses $12$. You can read more about abundant numbers on [Wikipedia](https://en.wikipedia.org/wiki/Abundant_number)
 
 This program, Abundant Number Checker, is a Python program that allows users to check if a given number is an abundant number or list abundant numbers within a specified range.
 
 ## How it Works
 
-- The program starts by defining a `main` function. Inside the `main` function, a while loop is used to repeatedly display a menu of options and handle user input. The user is prompted to choose an option: check if a number is abundant, list abundant numbers within a range, display divisors of a number, or quit the program. The user's choice is obtained using the `input` function and stored in the `choice` variable.
+- The program starts by defining a `main` function, which uses a while loop to repeatedly display a menu of options and handle user input. The user is prompted to choose an option: check if a number is abundant, list abundant numbers within a range, display divisors of a number, or quit the program. The user's choice is obtained using the `input` function and stored in the `choice` variable.
 
 - The program uses a series of if-elif-else statements to execute the corresponding functions based on the user's choice. If the user chooses option 1, the `check_abundant_number` function is called. If the user chooses option 2, the `list_abundant_numbers` function is called. If the user chooses option 3, the `display_divisors` function is called. If the user chooses option 4 or enters "q" to quit, the program terminates.
 

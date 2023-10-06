@@ -1,9 +1,9 @@
-
 def main():
     '''Main function to get user input and check if a number is abundant.'''
 
     print('\nAbundant Number Checker\n')
 
+    # Display menu options and handle user input accordingly
     while True:
         print('1. Check if a number is abundant')
         print('2. List abundant numbers within a range')
@@ -26,7 +26,7 @@ def main():
 
 def check_abundant_number():
     '''Function to check if a number is abundant.'''
-
+    # Get user input for a number and check if it is abundant
     while True:
         try:
             number = int(input('Enter a number: '))
@@ -41,7 +41,7 @@ def check_abundant_number():
 
 def list_abundant_numbers():
     '''Function to list abundant numbers within a range.'''
-
+    # Get user input for a range and list abundant numbers within that range
     while True:
         try:
             start = int(input('Enter the starting number: '))
@@ -66,7 +66,7 @@ def list_abundant_numbers():
 
 def display_divisors():
     '''Function to display the divisors of a number.'''
-
+    # Get user input for a number and display its divisors
     while True:
         try:
             number = int(input('Enter a number: '))
@@ -77,14 +77,13 @@ def display_divisors():
     divisors = get_divisors(number)
 
     if divisors:
-        # print('Divisors of', number, ':', divisors)
         print(f'Divisors of {number}: {sorted(divisors)}\n')
     else:
         print(f'No divisors found for the number {number}.\n')
 
 def get_divisors(n):
     '''Returns a list of divisors of a given number.'''
-
+    # Calculate divisors for a given number
     divisors = []
     for i in range(1, int(n**0.5) + 1):
         if n % i == 0:
@@ -95,7 +94,7 @@ def get_divisors(n):
 
 def is_abundant(n):
     '''Checks if a number is abundant.'''
-
+    # Check if a number is abundant by comparing the sum of divisors with the number
     sum_divisors = sum(get_divisors(n)) - n
     return sum_divisors > n
 
