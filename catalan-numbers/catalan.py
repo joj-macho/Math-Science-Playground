@@ -1,4 +1,3 @@
-
 def main():
     '''Main function to compute Catalan numbers.'''
 
