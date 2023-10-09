@@ -4,6 +4,12 @@
 
 The Combination and Permutation Calculator is a Python program that performs calculations related to combinations and permutations. Combinations and permutations are mathematical concepts used to count the number of possible arrangements or selections from a given set of items. The program provides options to calculate combinations (nCr) and permutations (nPr) based on user input values for n and r. It utilizes the factorial function to compute the necessary factorials and applies the formulas for combinations and permutations to produce the desired results.
 
+<strong>Combination (nCr)</strong>: The combination of $n$ objects taken $r$ at a time is denoted as $nCr$, or $C(n,r)$. It represents the number of ways to choose $r$ items from a set of $n$ items, disregarding the order of selection. The formula to calculate $nCr$ is:
+$$C(n,r) = \frac{n!}{r!(n-r)!}$$
+
+<strong>Permutation (nPr)</strong>: The permutation of $n$ objects taken $r$ at a time is denoted as $nPr$, or $P(n,r)$. It signifies the number of ways to arrange $r$ items from a set of $n$ items, considering the order of selection. The formula to calculate $nPr$ is:
+$$P(n,r) = \frac{n!}{(n-r)!}$$
+
 
 ## How it Works
 
