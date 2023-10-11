@@ -1,102 +1,102 @@
+import math
+
 def main():
-    '''Main function to get user input and check if a number is abundant.'''
+    '''Main function to check if a number is abundant or generate abundant numbers.'''
 
-    print('\nAbundant Number Checker\n')
+    print('\nAbundant Number Checker and Generator\n')
 
-    # Display menu options and handle user input accordingly
     while True:
+        # Display menu options
+        print('Choose an option:')
         print('1. Check if a number is abundant')
         print('2. List abundant numbers within a range')
-        print('3. Display divisors of a number')
-        print('4. Enter (q)uit to exit program')
+        print('3. Exit program')
 
-        choice = input('Enter your choice:\n> ')
+        # choice = input('Enter your choice:\n> ')
+        choice = get_valid_input('Enter your choice: ')
 
-        if choice == '1':
-            check_abundant_number()
-        elif choice == '2':
-            list_abundant_numbers()
-        elif choice == '3':
-            display_divisors()
-        elif choice == '4' or choice.startswith('q'):
+        if choice == 1:
+            # Check if a single number is abundant
+            number = get_valid_input('Enter a positive integer to check if it is abundant:\n> ')
+
+            divisors = get_divisors(number)
+            divisors_str = ' + '.join(map(str, divisors[:-1]))
+
+            if is_abundant(number):
+                print(f'{number} is an abundant number...')
+                print(f'Sum of divisors of {number}: {divisors_str} = {sum(divisors[:-1])} > {number}\n')
+            else:
+                print(f'{number} is not an abundant number...')
+                print(f'Sum of divisors of {number}: {divisors_str} = {sum(divisors[:-1])} < {number}\n')
+
+        elif choice == 2:
+            # Generate abundant numbers within a given range
+            start = get_valid_input('Enter the lower limit: ')
+            end = get_valid_input('Enter an upper limit: ')
+
+            if start > end:
+                print('\nInvalid range. Lower limit should be less than or equal to the upper limit.\n')
+                continue
+
+            abundant_numbers = generate_abundant_numbers(start, end)
+            if abundant_numbers:
+                print(f'Abundant numbers between [{start}, {end}]: {abundant_numbers}\n')
+            else:
+                print(f'No abundant numbers between [{start}, {end}].\n')
+
+        elif choice == 3:
+            # Exit the program
             print('Bye.')
             break
         else:
-            print('Invalid choice. Please enter a valid option.')
+            print('Invalid choice. Please enter a valid option.\n')
 
-def check_abundant_number():
-    '''Function to check if a number is abundant.'''
-    # Get user input for a number and check if it is abundant
+
+def get_valid_input(message):
+    '''Get a valid input from the user.'''
+    # Validate user input
     while True:
         try:
-            number = int(input('Enter a number: '))
-            break
-        except ValueError:
-            print('Invalid input. Please enter a valid integer.')
-
-    if is_abundant(number):
-        print(f'{number} is an abundant number.\n')
-    else:
-        print(f'{number} is not an abundant number.\n')
-
-def list_abundant_numbers():
-    '''Function to list abundant numbers within a range.'''
-    # Get user input for a range and list abundant numbers within that range
-    while True:
-        try:
-            start = int(input('Enter the starting number: '))
-            end = int(input('Enter the ending number: '))
-            break
-        except ValueError:
-            print('Invalid input. Please enter valid integers.\n')
-
-    if start > end:
-        print('Invalid range. Starting number should be less than or equal to the ending number.')
-        return
-
-    abundant_numbers = []
-    for number in range(start, end + 1):
-        if is_abundant(number):
-            abundant_numbers.append(number)
-
-    if abundant_numbers:
-        print(f'Abundant numbers within the range ({start}, {end}):\n{abundant_numbers}\n')
-    else:
-        print(f'No abundant numbers within the range ({start}, {end}).\n')
-
-def display_divisors():
-    '''Function to display the divisors of a number.'''
-    # Get user input for a number and display its divisors
-    while True:
-        try:
-            number = int(input('Enter a number: '))
-            break
+            user_input = int(input(message))
+            if user_input >= 0:
+                return user_input
+            else:
+                print('Invalid input. Please enter a non-negative integer.\n')
         except ValueError:
             print('Invalid input. Please enter a valid integer.\n')
 
-    divisors = get_divisors(number)
-
-    if divisors:
-        print(f'Divisors of {number}: {sorted(divisors)}\n')
-    else:
-        print(f'No divisors found for the number {number}.\n')
 
 def get_divisors(n):
     '''Returns a list of divisors of a given number.'''
     # Calculate divisors for a given number
     divisors = []
-    for i in range(1, int(n**0.5) + 1):
+    for i in range(1, int(math.sqrt(n)) + 1):
         if n % i == 0:
             divisors.append(i)
             if i != n // i:
                 divisors.append(n // i)
-    return divisors
+    return sorted(divisors)
+
 
 def is_abundant(n):
     '''Checks if a number is abundant.'''
     # Check if a number is abundant by comparing the sum of divisors with the number
     sum_divisors = sum(get_divisors(n)) - n
     return sum_divisors > n
+
+
+def generate_abundant_numbers(start, end):
+    '''Generate abundant numbers within a specified range.'''
+    # List to store abundant numbers
+    abundant_numbers = []
+
+    # Check each number in the given range
+    for number in range(start, end + 1):
+        if is_abundant(number):
+            abundant_numbers.append(number)
+
+    return abundant_numbers
+
 
 if __name__ == '__main__':
     main()
