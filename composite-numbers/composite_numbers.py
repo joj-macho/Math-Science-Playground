@@ -6,7 +6,7 @@ def main():
     print('\nComposite Number Checker and Generator\n')
 
     while True:
-        # Display menue options
+        # Display menu options
         print('Choose an option:')
         print('1. Check if a number is composite')
         print('2. Generate composite numbers within a range')
