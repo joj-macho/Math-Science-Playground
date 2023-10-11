@@ -2,26 +2,23 @@
 
 ## Description
 
-Abundant numbers are positive integers that are smaller than the sum of their proper divisors. In other words, the sum of all the divisors of an abundant number, excluding the number itself, is greater than the number itself. In mathematical terms, an abundant number $n$ satisfies $\sigma(n) \gt 2n$, where $\sigma(n)$ represents the sum of all divisors of $n$. For example, the number $12$ is an abundant number because the sum of its proper divisors ($1 + 2 + 3 + 4 + 6 = 16$) surpasses $12$. You can read more about abundant numbers on [Wikipedia](https://en.wikipedia.org/wiki/Abundant_number)
+Abundant numbers are positive integers that are smaller than the sum of their proper divisors. In other words, the sum of all the divisors of an abundant number, excluding the number itself, is greater than the number itself. In mathematical terms, an abundant number $n$ satisfies $\sigma(n) \gt 2n$, where $\sigma(n)$ represents the sum of all divisors of $n$. For example, the number $12$ is an abundant number because the sum of its proper divisors ($1 + 2 + 3 + 4 + 6 = 16$) surpasses $12$. You can read more about abundant numbers on [Wikipedia](https://en.wikipedia.org/wiki/Abundant_number) and [Wolfram MathWorld](https://mathworld.wolfram.com/AbundantNumber.html)
 
 This program, Abundant Number Checker, is a Python program that allows users to check if a given number is an abundant number or list abundant numbers within a specified range.
 
 ## How it Works
 
-- The program starts by defining a `main` function, which uses a while loop to repeatedly display a menu of options and handle user input. The user is prompted to choose an option: check if a number is abundant, list abundant numbers within a range, display divisors of a number, or quit the program. The user's choice is obtained using the `input` function and stored in the `choice` variable.
+- The program starts by defining a `main` function, which uses a while loop to repeatedly display a menu of options and handle user input. The user is prompted to choose an option: check if a number is abundant, generate abundant numbers within a range, or quit the program. The user's choice is obtained using the `get_valid_input(message)` function and stored in the `choice` variable.
 
-- The program uses a series of if-elif-else statements to execute the corresponding functions based on the user's choice. If the user chooses option 1, the `check_abundant_number` function is called. If the user chooses option 2, the `list_abundant_numbers` function is called. If the user chooses option 3, the `display_divisors` function is called. If the user chooses option 4 or enters "q" to quit, the program terminates.
+- The `get_valid_input(message)` function is called to obtain a valid input from the user. This function validates the input, ensuring that the entered value is a positive integer greater than 0. If the input is not valid, appropriate error messages are displayed, and the user is prompted to re-enter the value.
 
-- To check if a number is abundant, the program calls the `check_abundant_number` function. This function prompts the user to enter a number and validates the input. The program then utilizes the `is_abundant` function to determine if the number is abundant and displays the result accordingly.
+- The program uses a series of if-elif-else statements to execute the corresponding functions based on the user's choice. If the user chooses option 1, the `is_abundant` function is called. If the user chooses option 2, the `generate_abundant_numbers` function is called. If the user chooses option 3, the loop breaks and the program ends.
 
-- When the user chooses to list abundant numbers within a range, the program calls the `list_abundant_numbers` function. This function prompts the user to enter a starting and ending number, validates the input, and iterates over each number in the range. For each number, the program checks if it is abundant using the `is_abundant` function. If it is, the number is added to a list of abundant numbers. Finally, the program displays the list of abundant numbers found within the specified range.
+- To check if a number is abundant (Option 1), the program calls the `is_abundant(n)` function. This function checks if a number `n` is abundant. It calls the `get_divisors` function to calculate the divisors of `n`, sums them, subtracts `n`, and checks if the sum is greater than `n`. The function returns `True` if the number is abundant and `False` otherwise.
 
-- To display the divisors of a number, the program utilizes the `display_divisors` function. This function prompts the user to enter a number, validates the input, and calls the `get_divisors` function to calculate the divisors of the number. The program then displays the list of divisors.
+- - The `get_divisors` function takes a number `n` as input and calculates its divisors. It iterates from 1 to the square root of `n` and checks if `n` is divisible by each number. If it is, the number and its quotient are added to the `divisors` list. The list of divisors is returned.
 
-- The `get_divisors` function takes a number `n` as input and calculates its divisors. It iterates from 1 to the square root of `n` and checks if `n` is divisible by each number. If it is, the number and its quotient are added to the `divisors` list. The list of divisors is returned.
-
-- The `is_abundant` function checks if a number `n` is abundant. It calls the `get_divisors` function to calculate the divisors of `n`, sums them, subtracts `n`, and checks if the sum is greater than `n`. The function returns `True` if the number is abundant and `False` otherwise.
-
+- When the user chooses to generate abundant numbers within a range, the program calls the `generate_abundant_numbers(start, end)` function. This function iterates over each number in the range `start` to `end + 1`. For each number, the program checks if it is abundant using the `is_abundant` function. If it is, the number is added to a list of abundant numbers. 
 
 
 ## Program Input & Output
@@ -30,54 +27,51 @@ When you run the program, `abundant_numbers.py`, the output will look like this;
 
 ```
 
-Abundant Number Checker
+Abundant Number Checker and Generator
 
+Choose an option:
 1. Check if a number is abundant
 2. List abundant numbers within a range
-3. Display divisors of a number
-4. Enter (q)uit to exit program
-Enter your choice:
-> 2
-Enter the starting number: 0
-Enter the ending number: 100
-Abundant numbers within the range (0, 100):
-[12, 18, 20, 24, 30, 36, 40, 42, 48, 54, 56, 60, 66, 70, 72, 78, 80, 84, 88, 90, 96, 100]
+3. Exit program
+Enter your choice: 1
+Enter a positive integer to check if it is abundant:
+> 9
+9 is not an abundant number...
+Sum of divisors of 9: 1 + 3 = 4 < 9
 
+Choose an option:
 1. Check if a number is abundant
 2. List abundant numbers within a range
-3. Display divisors of a number
-4. Enter (q)uit to exit program
-Enter your choice:
-> 1
-Enter a number:
-> 2
-2 is not an abundant number.
+3. Exit program
+Enter your choice: 1
+Enter a positive integer to check if it is abundant:
+> 50
+50 is not an abundant number...
+Sum of divisors of 50: 1 + 2 + 5 + 10 + 25 = 43 < 50
 
+Choose an option:
 1. Check if a number is abundant
 2. List abundant numbers within a range
-3. Display divisors of a number
-4. Enter (q)uit to exit program
-Enter your choice:
-> 1
-Enter a number:
-> 42
-42 is an abundant number.
+3. Exit program
+Enter your choice: 1
+Enter a positive integer to check if it is abundant:
+> 36
+36 is an abundant number...
+Sum of divisors of 36: 1 + 2 + 3 + 4 + 6 + 9 + 12 + 18 = 55 > 36
 
+Choose an option:
 1. Check if a number is abundant
 2. List abundant numbers within a range
-3. Display divisors of a number
-4. Enter (q)uit to exit program
-Enter your choice:
-> 3
-Enter a number:
-> 42
-Divisors of 42: [1, 2, 3, 6, 7, 14, 21, 42]
+3. Exit program
+Enter your choice: 2
+Enter the lower limit: 10
+Enter an upper limit: 100
+Abundant numbers between [10, 100]: [12, 18, 20, 24, 30, 36, 40, 42, 48, 54, 56, 60, 66, 70, 72, 78, 80, 84, 88, 90, 96, 100]
 
+Choose an option:
 1. Check if a number is abundant
 2. List abundant numbers within a range
-3. Display divisors of a number
-4. Enter (q)uit to exit program
-Enter your choice:
-> 4
+3. Exit program
+Enter your choice: 3
 Bye.
 ```
