@@ -9,10 +9,9 @@ def main():
         # Display menu options
         print('Choose an option:')
         print('1. Check if a number is abundant')
-        print('2. List abundant numbers within a range')
+        print('2. Generate abundant numbers within a range')
         print('3. Exit program')
 
-        # choice = input('Enter your choice:\n> ')
         choice = get_valid_input('Enter your choice: ')
 
         if choice == 1:
