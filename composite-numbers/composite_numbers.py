@@ -6,7 +6,7 @@ def main():
     print('\nComposite Number Checker and Generator\n')
 
     while True:
-        # Display menu options
+        # Display menue options
         print('Choose an option:')
         print('1. Check if a number is composite')
         print('2. Generate composite numbers within a range')
@@ -32,7 +32,11 @@ def main():
                 continue
 
             composite_numbers = generate_composite_numbers(start, end)
-            print(f'Composite numbers between [{start}, {end}]: {composite_numbers}\n')
+            if composite_numbers:
+                print(f'Composite numbers between [{start}, {end}]: {composite_numbers}\n')
+            else:
+                print(f'No composite numbers between [{start}, {end}].\n')
+
 
         elif choice == 3:
             # Exit the program
@@ -40,7 +44,7 @@ def main():
             break
         else:
             # Invalid choice.
-            print('Invalid choice. Please try again.\n')
+            print('Invalid choice. Please enter a valid option.\n')
 
 
 def get_valid_input(message):
