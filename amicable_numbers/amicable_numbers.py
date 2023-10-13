@@ -1,67 +1,64 @@
 def main():
     '''Main function to get user input and find amicable pairs.'''
 
-    print('\nAmicable Number Checker\n')
+    print('\nAmicable Number Checker and Generator\n')
 
     while True:
+        # Display menu options
+        print('Choose an option:')
         print('1. Check if a number is part of an amicable pair')
-        print('2. List amicable pairs within a range')
-        print('3. Enter (q)uit to exit program')
+        print('2. Generate amicable pairs within a range')
+        print('3. Exit program')
 
-        choice = input('Enter your choice:\n> ')
+        choice = get_valid_input('Enter your choice: ')
 
-        if choice == '1':
-            check_amicable_pair()
-        elif choice == '2':
-            list_amicable_pairs()
-        elif choice == '3' or choice.startswith('q'):
+        if choice == 1:
+            # Check if a number is amicable
+            number = get_valid_input('Enter a positive integer to check if it is an amicable number: ')
+            amicable_pair = find_amicable_pair(number)
+
+            if amicable_pair:
+                print(f'The amicable pair for {number} is: {amicable_pair}\n')
+            else:
+                print(f'{number} is not part of an amicable pair.\n')
+
+        elif choice == 2:
+            # Generate amicable pairs within a given range
+            start = get_valid_input('Enter the lower limit: ')
+            end = get_valid_input('Enter an upper limit: ')
+
+            if start > end:
+                print('\nInvalid range. Lower limit should be less than or equal to the upper limit.\n')
+                continue
+
+            amicable_pairs = generate_amicable_pairs(start, end)
+
+            if amicable_pairs:
+                print(f'Amicable pairs within the range ({start}, {end}):\n{amicable_pairs}\n')
+            else:
+                print(f'No amicable pairs within the range ({start}, {end}).\n')
+
+        elif choice == 3:
+            # Exit the program
             print('Bye.')
             break
         else:
             print('Invalid choice. Please enter a valid option.')
 
-def check_amicable_pair():
-    '''Function to check if a number is part of an amicable pair.'''
 
+def get_valid_input(message):
+    '''Get a valid input from the user.'''
+    # Validate user input
     while True:
         try:
-            number = int(input('Enter a number: '))
-            break
+            user_input = int(input(message))
+            if user_input >= 0:
+                return user_input
+            else:
+                print('Invalid input. Please enter a non-negative integer.\n')
         except ValueError:
             print('Invalid input. Please enter a valid integer.\n')
 
-    amicable_pair = find_amicable_pair(number)
-
-    if amicable_pair:
-        print(f'The amicable pair for {number} is: {amicable_pair}\n')
-    else:
-        print(f'{number} is not part of an amicable pair.\n')
-
-def list_amicable_pairs():
-    '''Function to list amicable pairs within a range.'''
-
-    while True:
-        try:
-            start = int(input('Enter the starting number: '))
-            end = int(input('Enter the ending number: '))
-            break
-        except ValueError:
-            print('Invalid input. Please enter valid integers.\n')
-
-    if start > end:
-        print('Invalid range. Starting number should be less than or equal to the ending number.')
-        return
-
-    amicable_pairs = []
-    for number in range(start, end + 1):
-        pair = find_amicable_pair(number)
-        if pair:
-            amicable_pairs.append(pair)
-
-    if amicable_pairs:
-        print(f'Amicable pairs within the range ({start}, {end}):\n{amicable_pairs}\n')
-    else:
-        print(f'No amicable pairs within the range ({start}, {end}).\n')
 
 def find_amicable_pair(n):
     '''Finds an amicable pair for a given number.'''
@@ -75,6 +72,7 @@ def find_amicable_pair(n):
     else:
         return None
 
+
 def get_divisors(n):
     '''Returns a list of proper divisors of a given number.'''
 
@@ -83,6 +81,23 @@ def get_divisors(n):
         if n % i == 0:
             divisors.append(i)
     return divisors
+
+
+def generate_amicable_pairs(start, end):
+    '''Generate amicable pairs within a range.'''
+    # List to store amicable pairs
+    amicable_pairs = []
+    found_pairs = set()  # Store pairs to avoid duplicates
+    for number in range(start, end + 1):
+        pair = find_amicable_pair(number)
+        if pair and pair not in found_pairs:
+            amicable_pairs.append(pair)
+            # Add both pairs to the set to avoid duplicates
+            found_pairs.add(pair)
+            found_pairs.add((pair[1], pair[0]))
+
+    return amicable_pairs
+
 
 if __name__ == '__main__':
     main()
