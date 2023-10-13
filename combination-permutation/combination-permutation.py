@@ -4,32 +4,49 @@ def main():
     print('\nCombination and Permutation Calculator\n')
 
     while True:
+        # Display menu options
+        print('Choose an option:')
         print('1. Calculate Combination (nCr)')
         print('2. Calculate Permutation (nPr)')
-        print('3. Enter (q)uit to exit program')
+        print('3. Exit program')
 
-        choice = input('Enter your choice: ')
+        choice = get_valid_input('Enter your choice: ')
 
-        if choice == '1':
-            calculate_combination()
-        elif choice == '2':
-            calculate_permutation()
-        elif choice == '3' or choice.startswith('q'):
+        if choice == 1:
+            # Calculate Combination
+            n = get_valid_input('Enter the value of n: ')
+            r = get_valid_input('Enter the value of r: ')
+            calculate_combination(n, r)
+
+        elif choice == 2:
+            # Calculate Permutation
+            n = get_valid_input('Enter the value of n: ')
+            r = get_valid_input('Enter the value of r: ')
+            calculate_permutation(n, r)
+
+        elif choice == 3:
             print('Bye.')
             break
         else:
             print('Invalid choice. Please enter a valid option.')
 
-def calculate_combination():
-    '''Function to calculate combination.'''
 
+def get_valid_input(message):
+    '''Get a valid input from the user.'''
+    # Validate user input
     while True:
         try:
-            n = int(input('Enter the value of n: '))
-            r = int(input('Enter the value of r: '))
-            break
+            user_input = int(input(message))
+            if user_input >= 0:
+                return user_input
+            else:
+                print('Invalid input. Please enter a non-negative integer.\n')
         except ValueError:
-            print('Invalid input. Please enter valid integers.\n')
+            print('Invalid input. Please enter a valid integer.\n')
+
+
+def calculate_combination(n, r):
+    '''Calculate combination.'''
 
     if n >= r >= 0:
         result = factorial(n) // (factorial(r) * factorial(n - r))
@@ -37,16 +54,8 @@ def calculate_combination():
     else:
         print('Invalid values. Make sure n >= r >= 0.\n')
 
-def calculate_permutation():
-    '''Function to calculate permutation.'''
-
-    while True:
-        try:
-            n = int(input('Enter the value of n: '))
-            r = int(input('Enter the value of r: '))
-            break
-        except ValueError:
-            print('Invalid input. Please enter valid integers.\n')
+def calculate_permutation(n, r):
+    '''Calculate permutation.'''
 
     if n >= r >= 0:
         result = factorial(n) // factorial(n - r)
@@ -55,7 +64,7 @@ def calculate_permutation():
         print('Invalid values. Make sure n >= r >= 0.\n')
 
 def factorial(n):
-    '''Function to calculate factorial.'''
+    '''Calculate factorial.'''
 
     if n == 0:
         return 1

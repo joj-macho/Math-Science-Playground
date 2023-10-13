@@ -6,22 +6,26 @@ The Combination and Permutation Calculator is a Python program that performs cal
 
 <strong>Combination (nCr)</strong>: The combination of $n$ objects taken $r$ at a time is denoted as $nCr$, or $C(n,r)$. It represents the number of ways to choose $r$ items from a set of $n$ items, disregarding the order of selection. The formula to calculate $nCr$ is:
 $$C(n,r) = \frac{n!}{r!(n-r)!}$$
+You can read more about combinations on [Wikipedia](https://en.wikipedia.org/wiki/Combination) and [Wolfram MathWorld](https://mathworld.wolfram.com/Combination.html)
 
 <strong>Permutation (nPr)</strong>: The permutation of $n$ objects taken $r$ at a time is denoted as $nPr$, or $P(n,r)$. It signifies the number of ways to arrange $r$ items from a set of $n$ items, considering the order of selection. The formula to calculate $nPr$ is:
 $$P(n,r) = \frac{n!}{(n-r)!}$$
+You can read more about permutation on [Wikipedia](https://en.wikipedia.org/wiki/Permutation) and [Wolfram MathWorld](https://mathworld.wolfram.com/Permutation.html)
 
 
 ## How it Works
 
-- The program starts by defining a <code>main</code> function. Inside the <code>main</code> function, a while loop is used to repeatedly display a menu of options and handle user input. The user is prompted to choose an option: calculate combination (nCr), calculate permutation (nPr), or quit the program. The user's choice is obtained using the <code>input</code> function and stored in the <code>choice</code> variable.
+- The program starts by defining a `main` function. Inside the `main` function, a while loop is used to repeatedly display a menu of options and handle user input. The user is prompted to choose an option: calculate combination (nCr), calculate permutation (nPr), or quit the program. The user's choice is obtained using the `get_valid_input(message)` function and stored in the `choice` variable.
 
-- The program uses an if-elif-else statement to execute the corresponding functions based on the user's choice. If the user chooses option 1, the <code>calculate_combination</code> function is called. If the user chooses option 2, the <code>calculate_permutation</code> function is called. If the user chooses option 3 or enters "q" to quit, the program terminates.
+- The `get_valid_input(message)` function is called to obtain a valid input from the user. This function validates the input, ensuring that the entered value is a positive integer greater than 0. If the input is not valid, appropriate error messages are displayed, and the user is prompted to re-enter the value.
 
-- To calculate the combination, the program calls the <code>calculate_combination</code> function. This function prompts the user to enter the values of n and r (where n is the total number of objects and r is the number of objects to choose). The input is validated, and if the input is valid (n &gt;= r &gt;= 0), the program calculates the combination using the formula <code>factorial(n) // (factorial(r) * factorial(n - r))</code>. The result is then displayed.
+- The program uses an if-elif-else statement to execute the corresponding functions based on the user's choice. If the user chooses option 1, the `calculate_combination` function is called. If the user chooses option 2, the `calculate_permutation` function is called. If the user chooses option 3, the loop breaks and the program ends.
 
-- To calculate the permutation, the program calls the <code>calculate_permutation</code> function. This function prompts the user to enter the values of n and r (where n is the total number of objects and r is the number of objects to arrange). The input is validated, and if the input is valid (n &gt;= r &gt;= 0), the program calculates the permutation using the formula <code>factorial(n) // factorial(n - r)</code>. The result is then displayed.
+- To calculate the combination, the program calls the `calculate_combination(n, r)` function. Where n is the total number of objects and r is the number of objects to choose. The function calculates the combination using the formula `factorial(n) // (factorial(r) * factorial(n - r))`.
 
-- The <code>factorial</code> function is used to calculate the factorial of a given number. It is a recursive function that returns the factorial of <code>n</code>. If <code>n</code> is 0, the function returns 1. Otherwise, it multiplies <code>n</code> by the factorial of <code>n - 1</code> to compute the factorial.
+- To calculate the permutation, the program calls the `calculate_permutation(n, r)` function. Where n is the total number of objects and r is the number of objects to arrange. The function calculates the permutation using the formula `factorial(n) // factorial(n - r)`. 
+
+- The `factorial` function is used to calculate the factorial of a given number. It is a recursive function that returns the factorial of `n`. If `n` is 0, the function returns 1. Otherwise, it multiplies `n` by the factorial of `n - 1` to compute the factorial.
 
 
 ## Program Input & Output
