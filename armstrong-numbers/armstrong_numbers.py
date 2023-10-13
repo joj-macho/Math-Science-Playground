@@ -1,64 +1,64 @@
 def main():
-    '''Main function to get user input and check if a number is an Armstrong number.'''
+    '''Main function to check if a number is an Armstrong number and generate Armstrong numbers'''
 
-    print('\nArmstrong Number Checker\n')
+    print('\nArmstrong Number Checker and Generator\n')
 
     while True:
+        # Display menu options
+        print('Choose an option:')
         print('1. Check if a number is an Armstrong number')
-        print('2. List Armstrong numbers within a range')
+        print('2. Generate Armstrong numbers within a range')
         print('3. Enter (q)uit to exit program')
+        print('3. Exit program')
 
-        choice = input('Enter your choice:\n> ')
+        choice = get_valid_input('Enter your choice: ')
 
-        if choice == '1':
-            check_armstrong_number()
-        elif choice == '2':
-            list_armstrong_numbers()
-        elif choice == '3' or choice.startswith('q'):
+        if choice == 1:
+            # Check if a number is amicable
+            number = get_valid_input('Enter a positive integer to check if it is an Armstrong number: ')
+
+            if is_armstrong(number):
+                print(f'{number} is an Armstrong number.\n')
+            else:
+                print(f'{number} is not an Armstrong number.\n')
+
+        elif choice == 2:
+            # Generate Armstrong numbers within a given range
+            start = get_valid_input('Enter the lower limit: ')
+            end = get_valid_input('Enter an upper limit: ')
+
+            if start > end:
+                print('\nInvalid range. Lower limit should be less than or equal to the upper limit.\n')
+                continue
+
+            armstrong_numbers = generate_armstrong_numbers(start, end)
+
+            if armstrong_numbers:
+                print(f'Armstrong numbers within the range ({start}, {end}): {armstrong_numbers}\n')
+            else:
+                print(f'No Armstrong numbers within the range ({start}, {end}).\n')
+
+        elif choice == 3:
+            # Exit the program
             print('Bye.')
             break
         else:
             print('Invalid choice. Please enter a valid option.')
 
-def check_armstrong_number():
-    '''Function to check if a number is an Armstrong number.'''
 
+def get_valid_input(message):
+    '''Get a valid input from the user.'''
+    # Validate user input
     while True:
         try:
-            number = int(input('Enter a number: '))
-            break
+            user_input = int(input(message))
+            if user_input >= 0:
+                return user_input
+            else:
+                print('Invalid input. Please enter a non-negative integer.\n')
         except ValueError:
             print('Invalid input. Please enter a valid integer.\n')
 
-    if is_armstrong(number):
-        print(f'{number} is an Armstrong number.\n')
-    else:
-        print(f'{number} is not an Armstrong number.\n')
-
-def list_armstrong_numbers():
-    '''Function to list Armstrong numbers within a range.'''
-
-    while True:
-        try:
-            start = int(input('Enter the starting number: '))
-            end = int(input('Enter the ending number: '))
-            break
-        except ValueError:
-            print('Invalid input. Please enter valid integers.\n')
-
-    if start > end:
-        print('Invalid range. Starting number should be less than or equal to the ending number.\n')
-        return
-
-    armstrong_numbers = []
-    for number in range(start, end + 1):
-        if is_armstrong(number):
-            armstrong_numbers.append(number)
-
-    if armstrong_numbers:
-        print(f'Armstrong numbers within the range ({start}, {end}):\n{armstrong_numbers}\n')
-    else:
-        print(f'No Armstrong numbers within the range ({start}, {end}).\n')
 
 def is_armstrong(n):
     '''Checks if a number is an Armstrong number.'''
@@ -71,6 +71,18 @@ def is_armstrong(n):
 
     # Check if the number is equal to the sum of the nth powers of its digits
     return n == sum_of_digits
+
+
+def generate_armstrong_numbers(start, end):
+    '''Generate Armstrong numbers within a range.'''
+    # List to store Armstrong numbers
+    armstrong_numbers = []
+    for number in range(start, end + 1):
+        if is_armstrong(number):
+            armstrong_numbers.append(number)
+
+    return armstrong_numbers
+
 
 if __name__ == '__main__':
     main()
