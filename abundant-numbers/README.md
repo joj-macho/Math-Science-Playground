@@ -2,9 +2,9 @@
 
 ## Description
 
-Abundant numbers are positive integers that are smaller than the sum of their proper divisors. In other words, the sum of all the divisors of an abundant number, excluding the number itself, is greater than the number itself. In mathematical terms, an abundant number $n$ satisfies $\sigma(n) \gt 2n$, where $\sigma(n)$ represents the sum of all divisors of $n$. For example, the number $12$ is an abundant number because the sum of its proper divisors ($1 + 2 + 3 + 4 + 6 = 16$) surpasses $12$. You can read more about abundant numbers on [Wikipedia](https://en.wikipedia.org/wiki/Abundant_number) and [Wolfram MathWorld](https://mathworld.wolfram.com/AbundantNumber.html)
+Abundant numbers are positive integers that are smaller than the sum of their proper divisors. In other words, the sum of all the divisors of an abundant number, excluding the number itself, is greater than the number itself. In mathematical terms, an abundant number $n$ satisfies $\sigma(n) \gt 2n$, where $\sigma(n)$ represents the sum of all divisors of $n$. For example, the number $12$ is an abundant number because the sum of its proper divisors ($1 + 2 + 3 + 4 + 6 = 16 \gt 12$. You can read more about abundant numbers on [Wikipedia](https://en.wikipedia.org/wiki/Abundant_number) and [Wolfram MathWorld](https://mathworld.wolfram.com/AbundantNumber.html)
 
-This program, Abundant Number Checker, is a Python program that allows users to check if a given number is an abundant number or list abundant numbers within a specified range.
+This program, Abundant Number Checker, is a Python program that allows users to check if a given number is an abundant number or generates abundant numbers within a specified range.
 
 ## How it Works
 
@@ -16,7 +16,7 @@ This program, Abundant Number Checker, is a Python program that allows users to 
 
 - To check if a number is abundant (Option 1), the program calls the `is_abundant(n)` function. This function checks if a number `n` is abundant. It calls the `get_divisors` function to calculate the divisors of `n`, sums them, subtracts `n`, and checks if the sum is greater than `n`. The function returns `True` if the number is abundant and `False` otherwise.
 
-- - The `get_divisors` function takes a number `n` as input and calculates its divisors. It iterates from 1 to the square root of `n` and checks if `n` is divisible by each number. If it is, the number and its quotient are added to the `divisors` list. The list of divisors is returned.
+- The `get_divisors` function takes a number `n` as input and calculates its divisors. It iterates from 1 to the square root of `n` and checks if `n` is divisible by each number. If it is, the number and its quotient are added to the `divisors` list. The list of divisors is returned.
 
 - When the user chooses to generate abundant numbers within a range, the program calls the `generate_abundant_numbers(start, end)` function. This function iterates over each number in the range `start` to `end + 1`. For each number, the program checks if it is abundant using the `is_abundant` function. If it is, the number is added to a list of abundant numbers. 
 
