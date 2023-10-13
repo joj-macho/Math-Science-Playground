@@ -2,25 +2,32 @@
 
 ## Description
 
-Harshad numbers, also known as Niven numbers, are positive integers that are divisible by the sum of their digits. In other words, a number is considered Harshad if it can be evenly divided by the sum of its individual digits. For example, the number 18 is a Harshad number because the sum of its digits (1 + 8 = 9) divides 18 evenly. Similarly, 21 is a Harshad number because it is divisible by the sum of its digits (2 + 1 = 3).
+Harshad numbers, also known as Niven numbers, are positive integers that are divisible by the sum of their digits. In other words, a number is considered Harshad if it can be evenly divided by the sum of its individual digits.
 
-This program, Harshad Number Checker, is a Python program that allows users to check if a number is a Harshad number or list Harshad numbers within a specified range.
+Let $n$ be a positive integer, and let $d_1,d_2, \ldots, d_k$​ be the individual digits of $n$. Then, $n$ is a Harshad number if and only if:
+$$n \, \text{mod} \,(d_1 + d_2 + \dots + d_k) = 0$$
+
+
+For example, consider $n=18$. The sum of its digits is $1 + 8 = 9$. We can check if $n=18$ is a Harshad number as follows:
+$$18 \, \text{mod} \,9 = 0$$
+That is, $n=1$ is a Harshad number since the sum of its digits, $9$, divides $n=18$ evenly. Similarly, 21 is a Harshad number because it is divisible by the sum of its digits, i.e. $21 \, mod \, (2+1) = 0$
+
+You can read more about Armstrong numbers on [Wikipedia](https://en.wikipedia.org/wiki/Harshad_number) and [Wolfram MathWorld](https://mathworld.wolfram.com/HarshadNumber.html)
+
+This program, Harshad Number Checker, is a Python program that allows users to check if a number is a Harshad number or generate Harshad numbers within a specified range.
 
 ## How it Works
 
-- The program starts with a `main` function. Inside this function, a while loop is used to repeatedly display a menu of options and handle user input. The user is prompted to choose an option: check if a number is Harshad, list Harshad numbers within a range, or quit the program. The user's choice is obtained using the `input` function and stored in the `choice` variable.
+- The program starts with a `main` function. Inside this function, a while loop is used to repeatedly display a menu of options and handle user input. The user is prompted to choose an option: check if a number is Harshad, generate Harshad numbers within a range, or quit the program. The user's choice is obtained using the `get_valid_input(message)` function and stored in the `choice` variable.
 
-- The program uses if-elif-else statements to execute the corresponding functions based on the user's choice. If the user chooses option 1, the `check_harshad_number` function is called. If the user chooses option 2, the `list_harshad_numbers` function is called. If the user chooses option 3 or enters 'q', the program terminates.
+- The `get_valid_input(message)` function is called to obtain a valid input from the user. This function validates the input, ensuring that the entered value is a positive integer greater than 0. If the input is not valid, appropriate error messages are displayed, and the user is prompted to re-enter the value.
 
-- To check if a number is Harshad, the program calls the `check_harshad_number` function. This function prompts the user to enter a number and validates the input. The program then checks if the number is a Harshad number using the `is_harshad` function.
+- The program uses if-elif-else statements to execute the corresponding functions based on the user's choice. If the user chooses option 1, the `is_harshad` function is called. If the user chooses option 2, the `generate_harshad_numbers` function is called. If the user chooses option 3 the program terminates.
 
-- The `is_harshad` function checks if a number is Harshad by calculating the sum of its digits. It converts the number to a string, iterates over each digit, converts it back to an integer, and calculates the sum of the digits. If the number is divisible by the sum of its digits without a remainder, it is a Harshad number.
+- To check if a number is Harshad, the program calls the `is_harshad(n)` function. This function checks if a number is Harshad by calculating the sum of its digits. It converts the number to a string, iterates over each digit, converts it back to an integer, and calculates the sum of the digits. If the number is divisible by the sum of its digits without a remainder, it is a Harshad number.
 
-- If the number is a Harshad number, the program displays a message indicating that the number is Harshad. Otherwise, it displays a message indicating that the number is not a Harshad number.
+- To generate Harshad numbers within a range, the program calls the `generate_harshad_numbers(start, end)` function. This function iterates over the range from the starting number to the ending number (inclusive) and checks if each number is a Harshad number using the `is_harshad` function. If a number is a Harshad number, it is added to a list.
 
-- To list Harshad numbers within a range, the program calls the `list_harshad_numbers` function. This function prompts the user to enter a starting number and an ending number, and validates the input. The program then iterates over the range from the starting number to the ending number (inclusive) and checks if each number is a Harshad number using the `is_harshad` function. If a number is a Harshad number, it is added to a list.
-
-- After iterating over the range, the program checks if any Harshad numbers were found within the range. If there are Harshad numbers, it displays them. Otherwise, it displays a message indicating that no Harshad numbers were found within the range.
 
 ## Program Input & Output
 
@@ -28,30 +35,37 @@ When you run the program, `harshad_numbers.py`, the output will look like this;
 
 ```
 
-Harshad Number Checker
+Harshad Number Checker and Generator
 
+Choose an option:
 1. Check if a number is Harshad
-2. List Harshad numbers within a range
-3. Enter (q)uit to exit program
-Enter your choice:
-> 2
-Enter the starting number > 0: 1
-Enter the ending number: 100
-Harshad numbers within the range (1, 100):
-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 18, 20, 21, 24, 27, 30, 36, 40, 42, 45, 48, 50, 54, 60, 63, 70, 72, 80, 81, 84, 90, 100].
+2. Generate Harshad numbers within a range
+3. Exit program
+Enter your choice: 1
+Enter a positive integer to check if it is a Harshad Number: 15
+15 is not a Harshad number.
 
+Choose an option:
 1. Check if a number is Harshad
-2. List Harshad numbers within a range
-3. Enter (q)uit to exit program
-Enter your choice:
-> 1
-Enter a number: 42
-42 is a Harshad number.
+2. Generate Harshad numbers within a range
+3. Exit program
+Enter your choice: 1
+Enter a positive integer to check if it is a Harshad Number: 18
+18 is a Harshad number.
 
+Choose an option:
 1. Check if a number is Harshad
-2. List Harshad numbers within a range
-3. Enter (q)uit to exit program
-Enter your choice:
-> q
+2. Generate Harshad numbers within a range
+3. Exit program
+Enter your choice: 2
+Enter the lower limit: 1
+Enter an upper limit: 25
+Harshad numbers within the range (1, 25): [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 18, 20, 21, 24].
+
+Choose an option:
+1. Check if a number is Harshad
+2. Generate Harshad numbers within a range
+3. Exit program
+Enter your choice: 3
 Bye.
 ```
