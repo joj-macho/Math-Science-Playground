@@ -2,7 +2,11 @@
 
 ## Description
 
-Mersenne numbers are positive integers that are one less than a power of two. In other words, they can be represented as $2^n - 1$, where $n$ is a positive integer. For example, the number 7 is a Mersenne number because it can be expressed as $2^3 - 1$.
+Mersenne numbers are positive integers that are one less than a power of two. That is, Mersenne numbers are a special class of positive integers defined by the formula:
+$$M_n = 2^n - 1$$
+where $M_n$ is the nth Mersenne number and $n$ is a positive integer.
+
+For example, the number 7 is a Mersenne number because it can be expressed as $2^3 - 1$. You can read more about Mersenne numbers on [Wikipedia](https://en.wikipedia.org/wiki/Mersenne_prime) and [Wolfram MathWorld](https://mathworld.wolfram.com/MersenneNumber.html)
 
 This program, Mersenne Number Generator, is a Python program that allows users to generate Mersenne numbers.
 
