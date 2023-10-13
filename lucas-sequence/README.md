@@ -20,16 +20,16 @@ This program, Lucas Number Generator, is a Python program that allows users to g
 
 ## How it Works
 
-- The program starts with a <code>main</code> function. Inside this function, a while loop is used to repeatedly display a menu of options and handle user input. The user is prompted to choose an option: generate the nth Lucas number, generate the Lucas sequence up to the nth term, or quit the program. The user's choice is obtained using the `get_valid_input(message)` function and stored in the `choice` variable.
+- The program starts with a `main` function. Inside this function, a while loop is used to repeatedly display a menu of options and handle user input. The user is prompted to choose an option: generate the nth Lucas number, generate the Lucas sequence up to the nth term, or quit the program. The user's choice is obtained using the `get_valid_input(message)` function and stored in the `choice` variable.
 
 - The `get_valid_input(message)` function is called to obtain a valid input from the user. This function validates the input, ensuring that the entered value is a positive integer greater than 0. If the input is not valid, appropriate error messages are displayed, and the user is prompted to re-enter the value.
 
-- The program uses if-elif-else statements to execute the corresponding functions based on the user's choice. If the user chooses option 1, the <code>get_nth_lucas_number</code> function is called. If the user chooses option 2, the <code>generate_lucas_sequence</code> function is called. If the user chooses option 3 the program terminates.
+- The program uses if-elif-else statements to execute the corresponding functions based on the user's choice. If the user chooses option 1, the `get_nth_lucas_number` function is called. If the user chooses option 2, the `generate_lucas_sequence` function is called. If the user chooses option 3 the program terminates.
 
-- To generate the nth Lucas number, the program calls the <code>get_nth_lucas_number(n)</code> function. The function checks for the base cases where the function directly returns the 0th and 1st Lucas numbers.  For `n` greater than 1, it initializes the first two Lucas numbers, $L_0$ and $L_1$. Then using a loop, it calculate subsequent Lucas numbers based on the Lucas sequence formula: $L(n) = L(n-1) + L(n-2)$. In each iteration, the values of `a` and `b` are updated according to the formula. Then finally it returns the nth Lucas number, which is stored in `b` after the loop completes.
+- To generate the nth Lucas number, the program calls the `get_nth_lucas_number(n)` function. The function checks for the base cases where the function directly returns the 0th and 1st Lucas numbers.  For `n` greater than 1, it initializes the first two Lucas numbers, $L_0$ and $L_1$. Then using a loop, it calculate subsequent Lucas numbers based on the Lucas sequence formula: $L(n) = L(n-1) + L(n-2)$. In each iteration, the values of `a` and `b` are updated according to the formula. Then finally it returns the nth Lucas number, which is stored in `b` after the loop completes.
 
 
-- To generate the Lucas sequence up to the nth term, the program calls the <code>generate_lucas_sequence(n)</code> function. This function returns a list containing the Lucas sequence up to the nth term. It iterates from 0 to `n` and calls the <code>get_nth_lucas_number</code> function for each term, adding the result to the sequence list.
+- To generate the Lucas sequence up to the nth term, the program calls the `generate_lucas_sequence(n)` function. This function returns a list containing the Lucas sequence up to the nth term. It iterates from 0 to `n` and calls the `get_nth_lucas_number` function for each term, adding the result to the sequence list.
 
 
 ## Program Input & Output
