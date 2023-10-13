@@ -12,7 +12,7 @@ For example, consider $n=18$. The sum of its digits is $1 + 8 = 9$. We can check
 $$18 \, \text{mod} \,9 = 0$$
 That is, $n=1$ is a Harshad number since the sum of its digits, $9$, divides $n=18$ evenly. Similarly, 21 is a Harshad number because it is divisible by the sum of its digits, i.e. $21 \, mod \, (2+1) = 0$
 
-You can read more about Armstrong numbers on [Wikipedia](https://en.wikipedia.org/wiki/Harshad_number) and [Wolfram MathWorld](https://mathworld.wolfram.com/HarshadNumber.html)
+You can read more about Harshad numbers on [Wikipedia](https://en.wikipedia.org/wiki/Harshad_number) and [Wolfram MathWorld](https://mathworld.wolfram.com/HarshadNumber.html)
 
 This program, Harshad Number Checker, is a Python program that allows users to check if a number is a Harshad number or generate Harshad numbers within a specified range.
 
