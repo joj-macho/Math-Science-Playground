@@ -4,20 +4,20 @@
 
 Palindrome numbers are positive integers that remain the same when their digits are reversed. In other words, they read the same forwards and backwards. For example, the numbers 121, 3443, or 12321 are palindrome numbers because they remain unchanged when the digits are reversed.
 
-This program, Palindrome Number Checker, is a Python program that allows users to check if a number is a palindrome number.
+You can read more about Palindromic numbers on [Wikipedia](https://en.wikipedia.org/wiki/Palindromic_number) and [Wolfram MathWorld](https://mathworld.wolfram.com/PalindromicNumber.html)
+
+This program, Palindrome Number Checker, is a Python program that allows users to check if a number is a palindrome number and generate palindrome numbers within a specified range.
 
 
 ## How it Works
 
-- The program starts with a `main` function. Within this function, a while loop is used to continuously display a menu of options and handle user input. The user is presented with three options: check if a number is palindromic, list palindromic numbers within a range, or quit the program. The user's choice is obtained using the `input` function and stored in the `choice` variable.
+- The program starts with a `main` function. Within this function, a while loop is used to continuously display a menu of options and handle user input. The user is presented with three options: check if a number is palindromic, list palindromic numbers within a range, or quit the program. The user's choice is obtained using the `get_valid_input(message)` function and stored in the `choice` variable.
 
-- If the user selects option 1, the program calls the `check_palindromic_number` function. This function prompts the user to enter a number and validates the input. It then uses the `is_palindromic` function to check if the number is palindromic. The result is displayed to the user.
+- The `get_valid_input(message)` function is called to obtain a valid input from the user. This function validates the input, ensuring that the entered value is a positive integer greater than 0. If the input is not valid, appropriate error messages are displayed, and the user is prompted to re-enter the value.
 
-- If the user selects option 2, the program calls the `list_palindromic_numbers` function. This function prompts the user to enter a starting and ending number for the range. The input is validated, ensuring that the starting number is less than or equal to the ending number. The program then iterates through each number in the range and checks if it is palindromic using the `is_palindromic` function. Palindromic numbers are added to a list, which is displayed to the user at the end.
+- If the user selects option 1, the program calls the `is_palindromic` function. This function takes an integer as input and converts it to a string for easy comparison. The function then checks if the string representation of the number is equal to its reverse, achieved by using string slicing with a step of -1. If the number is palindromic, the function returns `True`; otherwise, it returns `False`.
 
-- The `is_palindromic` function is used to check if a number is palindromic. It takes an integer as input and converts it to a string for easy comparison. The function then checks if the string representation of the number is equal to its reverse, achieved by using string slicing with a step of -1. If the number is palindromic, the function returns `True`; otherwise, it returns `False`.
-
-- The program continues to run until the user chooses to quit by selecting option 3 or entering 'q'.
+- If the user selects option 2, the program calls the `generate_palindromic_numbers` function. This function iterates through each number in the range and checks if it is palindromic using the `is_palindromic` function. Palindromic numbers are added to a list, which is displayed to the user at the end.
 
 
 ## Program Input & Output
@@ -26,30 +26,37 @@ When you run the program, `palindrome_numbers.py`, the output will look like thi
 
 ```
 
-Palindromic Numbers Program
+Palindromic Numbers Checker and Generator
 
+Choose an option:
 1. Check if a number is palindromic
 2. List palindromic numbers within a range
-3. Enter (q)uit to exit program
-Enter your choice:
-> 1
-Enter a number: 88588
-88588 is a palindromic number.
+3. Exit program
+Enter your choice: 1
+Enter a positive integer to check if it is Palindromic: 16
+16 is not a palindromic number.
 
+Choose an option:
 1. Check if a number is palindromic
 2. List palindromic numbers within a range
-3. Enter (q)uit to exit program
-Enter your choice:
-> 2
-Enter the starting number: 1000
-Enter the ending number: 5000
-Palindromic numbers within the range (1000, 5000):
-[1001, 1111, 1221, 1331, 1441, 1551, 1661, 1771, 1881, 1991, 2002, 2112, 2222, 2332, 2442, 2552, 2662, 2772, 2882, 2992, 3003, 3113, 3223, 3333, 3443, 3553, 3663, 3773, 3883, 3993, 4004, 4114, 4224, 4334, 4444, 4554, 4664, 4774, 4884, 4994]
+3. Exit program
+Enter your choice: 1
+Enter a positive integer to check if it is Palindromic: 88288
+88288 is a palindromic number.
 
+Choose an option:
 1. Check if a number is palindromic
 2. List palindromic numbers within a range
-3. Enter (q)uit to exit program
-Enter your choice:
-> 3
+3. Exit program
+Enter your choice: 2
+Enter the lower limit: 10
+Enter an upper limit: 1000
+Palindromic numbers within the range (10, 1000): [11, 22, 33, 44, 55, 66, 77, 88, 99, 101, 111, 121, 131, 141, 151, 161, 171, 181, 191, 202, 212, 222, 232, 242, 252, 262, 272, 282, 292, 303, 313, 323, 333, 343, 353, 363, 373, 383, 393, 404, 414, 424, 434, 444, 454, 464, 474, 484, 494, 505, 515, 525, 535, 545, 555, 565, 575, 585, 595, 606, 616, 626, 636, 646, 656, 666, 676, 686, 696, 707, 717, 727, 737, 747, 757, 767, 777, 787, 797, 808, 818, 828, 838, 848, 858, 868, 878, 888, 898, 909, 919, 929, 939, 949, 959, 969, 979, 989, 999]
+
+Choose an option:
+1. Check if a number is palindromic
+2. List palindromic numbers within a range
+3. Exit program
+Enter your choice: 3
 Bye.
 ```
